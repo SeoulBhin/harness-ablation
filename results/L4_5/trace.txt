@@ -1,0 +1,18 @@
+ 1 Skill  make-deck
+ 2 Bash   cd "<runs>/L4_5"
+ 3 Bash   cd "<runs>/L4_5"
+      sys.stdout.reconfigure(encoding="utf-8")  # Windows cp949 콘솔에서 ✗ 출력
+      print("  ✗", e)
+      print("통과" if not errors else f"문제 {len(errors)}건 — slides.html 을 고치고 다시 돌린다")
+ 4 Bash   cd "<runs>/L4_5"
+ 5 Write  <runs>/L4_5/deck
+    [PreToolUse 훅] exit 0 
+ 6 Bash   cd "<runs>/L4_5"
+      ✗ 계산식 '(4450-3950)/3950*100' 의 3950 이 원본에 없음
+      ✗ 계산식 '(4450-3950)/3950*100' 의 4450 이 원본에 없음
+      문제 2건 — slides.html 을 고치고 다시 돌린다
+ 7 Edit   <runs>/L4_5/deck
+    [PreToolUse 훅] exit 0 
+ 8 Bash   cd "<runs>/L4_5"
+      통과
+    [Stop 훅] exit 0 

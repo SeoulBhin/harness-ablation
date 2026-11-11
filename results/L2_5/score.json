@@ -1,0 +1,33 @@
+{
+ "run": "L2_5",
+ "level": "L2",
+ "new_files": [
+  "__pycache__/build.cpython-313.pyc",
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 73,
+ "turns": 11,
+ "cost_usd_list": 0.358,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 9,
+ "build_runs": 3,
+ "hook_events": 0,
+ "final_text": " 0건, PDF 7쪽입니다. 2번 슬라이드는 화면으로 보고 확인했습니다. 다른 덱을 만들기 전에 이 줄을 지울지 정해 주세요.\n\n**구성** (모두 2분기 대비, 계산한 숫자에는 계산식을 붙여 검사함)\n1. 표지\n2. 핵심 숫자: 매출 30,940만원(+7.6%), 신규고객 1,188명(+14.5%), 9월말 활성고객 6,291명(+16.2%), 해지 313명(+10.2%)\n3. 월별 매출 추이(선 차트): 9월 10,690만원으로 연중 최고, 8월에 한 번 줄었음\n4. 월별 신규·해지(막대 차트): 활성고객이 꾸준히 늘었음\n5. 8월 해지 118명 급증: 해지율 2.06%. 원인은 자료에 없어 \"미정\"으로 둠\n6. 마케팅 효율: 마케팅비는 12.7% 늘었지만 신규 1명당 비용은 3.81만원에서 3.75만원으로 낮아짐\n7. 결정할 것: 8월 해지 원인 조사, 4분기 마케팅비 수준, 9월 신규가 늘어난 이유 정리. 담당자와 기한은 모두 \"미정\"\n\n**일부러 뺀 것**\n- 1분기는 차트에 추이로만 넣고 따로 비교하지 않았습니다.\n- 해지율을 어떻게 계산할지는 자료에 정해져 있지 않습니다. 그래서 \"해지 ÷ 전월말 활성고객\"으로 정하고 슬라이드에 적어 두었습니다.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 24,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

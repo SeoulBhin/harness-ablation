@@ -1,0 +1,32 @@
+{
+ "run": "L3_1",
+ "level": "L3",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 56,
+ "turns": 8,
+ "cost_usd_list": 0.226,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 6,
+ "build_runs": 3,
+ "hook_events": 0,
+ "final_text": " 6장이고, 빌드 검사(숫자·화면 넘침·PDF 쪽수)를 모두 통과했습니다.\n\n- HTML: `decks/분기실적/분기실적.html`\n- PDF: `decks/분기실적/분기실적.pdf`\n\n**구성**\n1. 표지\n2. 3분기 요약: 매출 30,940만원(전분기 대비 +7.6%), 신규고객 +14.5%, 해지고객 +10.2%, 9월 말 활성고객 6,291명(6월 말보다 875명 증가)\n3. 월별 매출 추이: 8월만 전월보다 2.2% 줄었고, 9월 10,690만원이 연중 최고\n4. 월별 신규·해지 고객: 8월 해지 118명으로 연중 최다(해지율 1.97%), 9월에 1.57%로 회복\n5. 분기별 마케팅비와 신규 1명당 비용: 마케팅비는 12.7% 늘었지만 1명당 비용은 3.75만원으로 가장 낮음\n6. 결정할 것: 4분기 마케팅비 유지 여부, 8월 해지 원인 조사, 8월 매출 감소와 해지의 연관 확인\n\n**일부러 넣지 않은 것**\n- 8월에 해지가 왜 늘었는지는 자료에 없어서 \"미정\"으로 적었습니다. 마지막 장의 담당자와 기한도 모두 \"미정\"입니다.\n- 1분기 대비 증가율과 고객 1명당 매출은 계산은 해 봤지만, 3분기 리뷰의 핵심 메시지가 아니라서 넣지 않았습니다.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 29,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

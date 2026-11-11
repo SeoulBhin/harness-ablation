@@ -1,0 +1,9 @@
+ 1 Bash   cd "<runs>/L1_2"
+ 2 Skill  dataviz
+ 3 Bash   cd "<home>/AppData/Local/Temp/claude/bundled-skills/2.1.322/a7c7c7ebea0e7d82aa4cce851c577b32/dataviz/references"
+ 4 Write  <runs>/L1_2/분기실적
+ 5 Bash   PYTHONUTF8=1 python build.py && E="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; W=$(cygpath -w "$PWD")
+ 6 Read   <runs>/L1_2/분기실적
+ 7 Edit   <runs>/L1_2/분기실적
+ 8 Bash   PYTHONUTF8=1 python build.py >/dev/null && E="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; W=$(cygpath
+ 9 Bash   PYTHONUTF8=1 python -c "

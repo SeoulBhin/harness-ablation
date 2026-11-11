@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>분기실적 — 2026년 3분기 실적 리뷰</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root {
+    --surface: #fcfcfb; --page: #e9e8e4; --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #8a8984;
+    --grid: #e4e3df; --s1: #2a78d6; --s2: #eb6834; --muted-bar: #c9c8c3;
+    --good: #0f7b3f; --bad: #c0392b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--page); font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide { width: 1280px; height: 720px; margin: 24px auto; background: var(--surface); padding: 56px 72px; position: relative; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; flex-direction: column; }
+  @media print { body { background: none; } .slide { margin: 0; box-shadow: none; page-break-after: always; break-after: page; } }
+  .eyebrow { font-size: 15px; font-weight: 600; color: var(--s1); letter-spacing: .04em; margin-bottom: 10px; }
+  h1 { font-size: 34px; font-weight: 700; letter-spacing: -.02em; line-height: 1.3; }
+  h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .sub { font-size: 14px; color: var(--ink-2); }
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 26px; display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); }
+  .body { flex: 1; margin-top: 32px; display: flex; gap: 40px; min-height: 0; }
+  .col { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .num { font-variant-numeric: tabular-nums; }
+  .up { color: var(--good); } .down { color: var(--bad); }
+
+  /* 표지 */
+  .cover { justify-content: center; padding-left: 96px; }
+  .cover .bar { width: 64px; height: 6px; background: var(--s1); border-radius: 3px; margin-bottom: 32px; }
+  .cover h1 { font-size: 56px; }
+  .cover .sub { font-size: 20px; margin-top: 16px; }
+
+  /* KPI */
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .kpi { border: 1px solid var(--grid); border-radius: 12px; padding: 22px 24px; }
+  .kpi .label { font-size: 14px; color: var(--ink-2); }
+  .kpi .value { font-size: 36px; font-weight: 700; margin: 8px 0 6px; letter-spacing: -.02em; }
+  .kpi .value small { font-size: 18px; font-weight: 600; margin-left: 2px; }
+  .kpi .delta { font-size: 14px; font-weight: 600; }
+  .kpi .delta span { color: var(--ink-3); font-weight: 400; margin-left: 4px; }
+  .msgs { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .msg { display: flex; gap: 16px; align-items: baseline; font-size: 19px; line-height: 1.5; }
+  .msg b { font-weight: 700; }
+  .msg .n { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; transform: translateY(-2px); }
+
+  /* 차트 */
+  .chart { flex: 1; min-height: 0; position: relative; }
+  .chart svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .chart text { font-family: inherit; }
+  .legend { display: flex; gap: 18px; font-size: 13px; color: var(--ink-2); margin: 6px 0 4px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .side { width: 330px; flex: none; display: flex; flex-direction: column; gap: 18px; }
+  .note { border-left: 3px solid var(--ink); padding: 4px 0 4px 16px; }
+  .note .t { font-size: 13px; color: var(--ink-2); }
+  .note .v { font-size: 22px; font-weight: 700; margin-top: 2px; }
+  .note p { font-size: 14px; color: var(--ink-2); line-height: 1.5; margin-top: 4px; }
+
+  /* 표 */
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--grid); }
+  th { font-weight: 600; color: var(--ink-2); font-size: 13px; border-bottom: 1.5px solid var(--ink); }
+  th:first-child, td:first-child { text-align: left; }
+  tr.q3 td { background: #f1f6fd; }
+  tr.sum td { font-weight: 700; border-top: 1.5px solid var(--ink); }
+
+  .list { display: flex; flex-direction: column; gap: 22px; }
+  .item h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .item p { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-right: 8px; vertical-align: 2px; }
+  .tag.warn { background: #fdecea; color: var(--bad); }
+  .tag.act { background: #e8f1fc; color: var(--s1); }
+
+  #tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--grid); border-radius: 8px; padding: 8px 12px; font-size: 13px; box-shadow: 0 4px 12px rgba(0,0,0,.1); display: none; z-index: 10; line-height: 1.5; }
+  #tip b { display: block; }
+  @media print { #tip { display: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- 1. 표지 -->
+<section class="slide cover">
+  <div class="bar"></div>
+  <div class="eyebrow">QUARTERLY BUSINESS REVIEW</div>
+  <h1>2026년 3분기 실적 리뷰</h1>
+  <p class="sub">2026년 7–9월 · 매출 · 고객 · 마케팅 효율</p>
+  <div class="footer"><span>분기실적</span><span>데이터: 04_분기실적.csv (2026-01 ~ 2026-09 월별)</span></div>
+</section>
+
+<!-- 2. 요약 -->
+<section class="slide">
+  <div class="eyebrow">01 · 요약</div>
+  <h1>3분기 매출 3억 940만원, 직전 분기 대비 7.6% 성장</h1>
+  <div class="body" style="flex-direction:column; gap:0">
+    <div class="kpis">
+      <div class="kpi"><div class="label">분기 매출</div><div class="value num">30,940<small>만원</small></div><div class="delta up num">▲ 7.6%<span>2Q 28,760</span></div></div>
+      <div class="kpi"><div class="label">분기말 활성고객</div><div class="value num">6,291<small>명</small></div><div class="delta up num">▲ 16.2%<span>2Q 5,416</span></div></div>
+      <div class="kpi"><div class="label">신규고객</div><div class="value num">1,188<small>명</small></div><div class="delta up num">▲ 14.5%<span>2Q 1,038</span></div></div>
+      <div class="kpi"><div class="label">평균 월 해지율</div><div class="value num">1.83<small>%</small></div><div class="delta up num">▼ 0.10%p<span>2Q 1.93%</span></div></div>
+    </div>
+    <div class="msgs">
+      <div class="msg"><span class="n">1</span><span><b>성장 가속</b> — 7월 처음으로 월 매출 1억원을 넘었고, 9월 10,690만원으로 연중 최고치를 기록했습니다.</span></div>
+      <div class="msg"><span class="n">2</span><span><b>고객 기반 확대</b> — 순증 875명으로 분기 순증이 1분기(662명)·2분기(754명)보다 커졌습니다.</span></div>
+      <div class="msg"><span class="n">3</span><span><b>점검 필요</b> — 고객당 매출(ARPU)은 7.4% 하락했고, 8월 해지 118명으로 연중 최다를 기록했습니다.</span></div>
+    </div>
+  </div>
+  <div class="footer"><span>분기실적</span><span>해지율 = 해지고객 ÷ 전월말 활성고객, 분기 내 3개월 평균</span></div>
+</section>
+
+<!-- 3. 매출 -->
+<section class="slide">
+  <div class="eyebrow">02 · 매출</div>
+  <h1>7월부터 월 매출 1억원대 진입, 8월 일시 감소 후 9월 회복</h1>
+  <div class="body">
+    <div class="col">
+      <h2>월별 매출 <span class="sub">(만원)</span></h2>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="side">
+      <div class="note"><div class="t">분기 매출</div><div class="v num" style="font-size:18px">1Q 25,600 → 2Q 28,760 → 3Q 30,940</div><p>3분기는 1분기 대비 +20.9%. 분기 성장률은 2Q +12.3%에서 3Q +7.6%로 둔화.</p></div>
+      <div class="note"><div class="t">8월</div><div class="v num down">10,010만원 (▼2.2%)</div><p>올해 두 번째 전월 대비 감소(첫 번째는 2월). 같은 달 해지 118명으로 연중 최다.</p></div>
+      <div class="note"><div class="t">9월</div><div class="v num up">10,690만원 (▲6.8%)</div><p>연중 최고치. 신규고객 415명도 연중 최다.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>분기실적</span><span>파란 막대 = 3분기</span></div>
+</section>
+
+<!-- 4. 고객 -->
+<section class="slide">
+  <div class="eyebrow">03 · 고객</div>
+  <h1>활성고객 6,291명, 분기 순증 875명으로 증가폭 확대</h1>
+  <div class="body">
+    <div class="col">
+      <h2>월말 활성고객 <span class="sub">(명)</span></h2>
+      <div class="chart" id="c-active"></div>
+    </div>
+    <div class="col">
+      <h2>월별 신규 · 해지 고객 <span class="sub">(명)</span></h2>
+      <div class="legend"><span><i style="background:var(--s1)"></i>신규고객</span><span><i style="background:var(--s2)"></i>해지고객</span></div>
+      <div class="chart" id="c-flow"></div>
+    </div>
+  </div>
+  <div class="footer"><span>분기실적</span><span>3Q 신규 1,188명 · 해지 313명 · 순증 875명</span></div>
+</section>
+
+<!-- 5. 효율 -->
+<section class="slide">
+  <div class="eyebrow">04 · 효율</div>
+  <h1>고객 획득 비용은 개선, 고객당 매출은 2분기 연속 하락</h1>
+  <div class="body">
+    <div class="col">
+      <h2>고객 획득 비용(CAC) <span class="sub">마케팅비 ÷ 신규고객, 원</span></h2>
+      <div class="chart" id="c-cac"></div>
+      <p class="sub" style="margin-top:8px">3Q 37,458원 — 2Q 대비 ▼1.6%. 마케팅비를 12.7% 늘렸지만 신규고객이 더 크게(14.5%) 늘었습니다.</p>
+    </div>
+    <div class="col">
+      <h2>고객당 월 매출(ARPU) <span class="sub">매출 ÷ 월말 활성고객, 원</span></h2>
+      <div class="chart" id="c-arpu"></div>
+      <p class="sub" style="margin-top:8px">3Q 17,200원 — 2Q 대비 ▼7.4%. 고객 수 증가 속도를 매출이 따라가지 못하고 있습니다.</p>
+    </div>
+  </div>
+  <div class="footer"><span>분기실적</span><span>분기 값 = 분기 합계 기준 (ARPU는 분기 매출 ÷ 3개월 월말 활성고객 합)</span></div>
+</section>
+
+<!-- 6. 이슈 & 4분기 -->
+<section class="slide">
+  <div class="eyebrow">05 · 점검 사항과 4분기 과제</div>
+  <h1>성장은 이어가되, 고객당 매출과 해지 관리를 점검</h1>
+  <div class="body">
+    <div class="col list">
+      <div class="item"><h3><span class="tag warn">점검</span>ARPU 하락</h3><p>1Q 19,284원 → 2Q 18,579원 → 3Q 17,200원. 신규 유입 고객의 이용 규모가 기존 고객보다 작은지, 할인·프로모션 영향인지 확인이 필요합니다.</p></div>
+      <div class="item"><h3><span class="tag warn">점검</span>8월 해지 급증</h3><p>해지 118명(해지율 2.06%)으로 7월(96명) 대비 23% 증가. 같은 달 매출도 감소했습니다. 9월에는 99명으로 회복했으나 원인 파악이 필요합니다.</p></div>
+      <div class="item"><h3><span class="tag warn">점검</span>마케팅비 대비 매출</h3><p>마케팅비 1만원당 매출 2Q 7.28만원 → 3Q 6.95만원. 획득 효율(CAC)은 좋아졌지만 매출 효율은 낮아졌습니다.</p></div>
+    </div>
+    <div class="col list">
+      <div class="item"><h3><span class="tag act">과제</span>고객당 매출 회복</h3><p>신규 고객 구간별 매출을 분리해 보고, 업셀·상위 플랜 전환을 4분기 핵심 지표로 관리합니다.</p></div>
+      <div class="item"><h3><span class="tag act">과제</span>해지 원인 분석</h3><p>8월 해지 고객의 가입 시기·이용 패턴을 분석해 재발 방지책을 마련합니다.</p></div>
+      <div class="item"><h3><span class="tag act">과제</span>마케팅 집행 기준 보완</h3><p>CAC와 함께 획득 고객의 초기 매출을 집행 판단 기준에 추가합니다.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>분기실적</span><span>과제는 데이터에서 도출한 제안이며 확정 계획이 아닙니다</span></div>
+</section>
+
+<!-- 7. 부록 -->
+<section class="slide">
+  <div class="eyebrow">부록</div>
+  <h1>월별 원자료</h1>
+  <div class="body" style="margin-top:20px">
+    <div class="col">
+      <table class="num">
+        <thead><tr><th>월</th><th>매출(만원)</th><th>신규고객</th><th>해지고객</th><th>월말 활성고객</th><th>해지율</th><th>마케팅비(만원)</th></tr></thead>
+        <tbody id="tbl"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="footer"><span>분기실적</span><span>1월 해지율의 분모(12월말 활성 4,000명)는 1월 수치에서 역산</span></div>
+</section>
+
+<div id="tip"></div>
+
+<script>
+const D = [
+  ["2026-01",8420,312,97,4215,1200],["2026-02",8150,287,104,4398,1100],["2026-03",9030,356,92,4662,1350],
+  ["2026-04",9310,341,88,4915,1300],["2026-05",9580,329,95,5149,1250],["2026-06",9870,368,101,5416,1400],
+  ["2026-07",10240,402,96,5722,1500],["2026-08",10010,371,118,5975,1450],["2026-09",10690,415,99,6291,1500]
+];
+const M = D.map(r => +r[0].slice(5) + "월");
+const fmt = n => Math.round(n).toLocaleString("ko-KR");
+const NS = "http://www.w3.org/2000/svg";
+const tip = document.getElementById("tip");
+function el(tag, attrs, parent, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function showTip(ev, html) { tip.innerHTML = html; tip.style.display = "block"; tip.style.left = ev.clientX + 14 + "px"; tip.style.top = ev.clientY + 14 + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function niceTicks(min, max, n) {
+  const raw = (max - min) / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(s => s * mag).find(s => s >= raw);
+  const lo = Math.floor(min / step) * step, hi = Math.ceil(max / step) * step, t = [];
+  for (let v = lo; v <= hi + 1e-9; v += step) t.push(v);
+  return t;
+}
+function frame(id, yMin, yMax) {
+  const box = document.getElementById(id), W = box.clientWidth, H = box.clientHeight;
+  const pad = { l: 52, r: 12, t: 22, b: 30 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}` }, box);
+  const ticks = niceTicks(yMin, yMax, 4);
+  const y0 = ticks[0], y1 = ticks[ticks.length - 1];
+  const y = v => pad.t + (H - pad.t - pad.b) * (1 - (v - y0) / (y1 - y0));
+  ticks.forEach(t => {
+    el("line", { x1: pad.l, x2: W - pad.r, y1: y(t), y2: y(t), stroke: "var(--grid)", "stroke-width": 1 }, svg);
+    el("text", { x: pad.l - 8, y: y(t) + 4, "text-anchor": "end", "font-size": 12, fill: "var(--ink-3)" }, svg, fmt(t));
+  });
+  return { svg, W, H, pad, y, y0 };
+}
+function xLabels(f, xs, labels) {
+  labels.forEach((m, i) => el("text", { x: xs(i), y: f.H - f.pad.b + 20, "text-anchor": "middle", "font-size": 13, fill: "var(--ink-2)" }, f.svg, m));
+}
+function bars(id, labels, vals, color, labelIdx, unit) {
+  const f = frame(id, 0, Math.max(...vals) * 1.08);
+  const band = (f.W - f.pad.l - f.pad.r) / labels.length, bw = Math.min(band * 0.56, 44);
+  const xs = i => f.pad.l + band * (i + 0.5);
+  vals.forEach((v, i) => {
+    const x = xs(i) - bw / 2, top = f.y(v), base = f.y(f.y0), r = 4;
+    const p = `M${x},${base}V${top + r}Q${x},${top} ${x + r},${top}H${x + bw - r}Q${x + bw},${top} ${x + bw},${top + r}V${base}Z`;
+    el("path", { d: p, fill: color(i) }, f.svg);
+    if (labelIdx.includes(i)) el("text", { x: xs(i), y: top - 8, "text-anchor": "middle", "font-size": 13, "font-weight": 600, fill: "var(--ink)" }, f.svg, fmt(v));
+    const hit = el("rect", { x: xs(i) - band / 2, y: f.pad.t, width: band, height: base - f.pad.t, fill: "transparent" }, f.svg);
+    hit.addEventListener("mousemove", ev => showTip(ev, `<b>2026년 ${labels[i]}</b>${fmt(v)}${unit}`));
+    hit.addEventListener("mouseleave", hideTip);
+  });
+  xLabels(f, xs, labels);
+}
+function groupedBars(id, labels, series) {
+  const all = series.flatMap(s => s.vals);
+  const f = frame(id, 0, Math.max(...all) * 1.08);
+  const band = (f.W - f.pad.l - f.pad.r) / labels.length, bw = Math.min(band * 0.3, 20), gap = 2;
+  const xs = i => f.pad.l + band * (i + 0.5);
+  labels.forEach((m, i) => {
+    series.forEach((s, j) => {
+      const v = s.vals[i], x = xs(i) + (j === 0 ? -bw - gap / 2 : gap / 2), top = f.y(v), base = f.y(f.y0), r = 3;
+      el("path", { d: `M${x},${base}V${top + r}Q${x},${top} ${x + r},${top}H${x + bw - r}Q${x + bw},${top} ${x + bw},${top + r}V${base}Z`, fill: s.color }, f.svg);
+    });
+    if (i === 7) el("text", { x: xs(i) + bw / 2, y: f.y(series[1].vals[i]) - 8, "text-anchor": "middle", "font-size": 12, "font-weight": 600, fill: "var(--ink)" }, f.svg, series[1].vals[i]);
+    if (i === 8) el("text", { x: xs(i) - bw / 2, y: f.y(series[0].vals[i]) - 8, "text-anchor": "middle", "font-size": 12, "font-weight": 600, fill: "var(--ink)" }, f.svg, series[0].vals[i]);
+    const hit = el("rect", { x: xs(i) - band / 2, y: f.pad.t, width: band, height: f.y(f.y0) - f.pad.t, fill: "transparent" }, f.svg);
+    hit.addEventListener("mousemove", ev => showTip(ev, `<b>2026년 ${m}</b>` + series.map(s => `${s.name} ${fmt(s.vals[i])}명`).join("<br>")));
+    hit.addEventListener("mouseleave", hideTip);
+  });
+  xLabels(f, xs, labels);
+}
+function line(id, labels, vals, unit, labelIdx, yPad) {
+  const lo = Math.min(...vals), hi = Math.max(...vals), span = hi - lo;
+  const f = frame(id, Math.max(0, lo - span * yPad), hi + span * 0.15);
+  const n = labels.length, inset = n <= 3 ? 60 : 16;
+  const xs = i => f.pad.l + inset + (f.W - f.pad.l - f.pad.r - inset * 2) * (n === 1 ? 0.5 : i / (n - 1));
+  el("path", { d: vals.map((v, i) => (i ? "L" : "M") + xs(i) + "," + f.y(v)).join(""), fill: "none", stroke: "var(--s1)", "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+  vals.forEach((v, i) => {
+    el("circle", { cx: xs(i), cy: f.y(v), r: 4.5, fill: "var(--s1)", stroke: "var(--surface)", "stroke-width": 2 }, f.svg);
+    if (labelIdx.includes(i)) el("text", { x: xs(i), y: f.y(v) - 12, "text-anchor": "middle", "font-size": 13, "font-weight": 600, fill: "var(--ink)" }, f.svg, fmt(v));
+  });
+  const cross = el("line", { y1: f.pad.t, y2: f.H - f.pad.b, stroke: "var(--ink-3)", "stroke-width": 1, "stroke-dasharray": "3 3", visibility: "hidden" }, f.svg);
+  const hit = el("rect", { x: f.pad.l, y: f.pad.t, width: f.W - f.pad.l - f.pad.r, height: f.H - f.pad.t - f.pad.b, fill: "transparent" }, f.svg);
+  hit.addEventListener("mousemove", ev => {
+    const r = f.svg.getBoundingClientRect(), px = (ev.clientX - r.left) * f.W / r.width;
+    let i = 0; vals.forEach((_, k) => { if (Math.abs(xs(k) - px) < Math.abs(xs(i) - px)) i = k; });
+    cross.setAttribute("x1", xs(i)); cross.setAttribute("x2", xs(i)); cross.setAttribute("visibility", "visible");
+    showTip(ev, `<b>${labels[i]}</b>${fmt(vals[i])}${unit}`);
+  });
+  hit.addEventListener("mouseleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+  xLabels(f, xs, labels);
+}
+
+// 분기 집계
+const Q = [0, 1, 2].map(q => {
+  const m = D.slice(q * 3, q * 3 + 3), s = k => m.reduce((a, r) => a + r[k], 0);
+  return { rev: s(1), nw: s(2), mk: s(5), act: s(4) };
+});
+const QL = ["1분기", "2분기", "3분기"];
+
+bars("c-rev", M, D.map(r => r[1]), i => i >= 6 ? "var(--s1)" : "var(--muted-bar)", [0, 6, 7, 8], "만원");
+line("c-active", M, D.map(r => r[4]), "명", [0, 2, 5, 8], 0.25);
+groupedBars("c-flow", M, [
+  { name: "신규", vals: D.map(r => r[2]), color: "var(--s1)" },
+  { name: "해지", vals: D.map(r => r[3]), color: "var(--s2)" }
+]);
+line("c-cac", QL, Q.map(q => q.mk / q.nw * 10000), "원", [0, 1, 2], 1.2);
+line("c-arpu", QL, Q.map(q => q.rev / q.act * 10000), "원", [0, 1, 2], 0.6);
+
+// 부록 표
+const tb = document.getElementById("tbl");
+D.forEach((r, i) => {
+  const prev = i ? D[i - 1][4] : r[4] - r[2] + r[3];
+  const tr = document.createElement("tr"); if (i >= 6) tr.className = "q3";
+  tr.innerHTML = `<td>${r[0]}</td><td>${fmt(r[1])}</td><td>${r[2]}</td><td>${r[3]}</td><td>${fmt(r[4])}</td><td>${(r[3] / prev * 100).toFixed(2)}%</td><td>${fmt(r[5])}</td>`;
+  tb.appendChild(tr);
+});
+const s3 = k => D.slice(6).reduce((a, r) => a + r[k], 0);
+const sum = document.createElement("tr"); sum.className = "sum";
+sum.innerHTML = `<td>3분기 합계</td><td>${fmt(s3(1))}</td><td>${fmt(s3(2))}</td><td>${s3(3)}</td><td>${fmt(D[8][4])}</td><td>평균 1.83%</td><td>${fmt(s3(5))}</td>`;
+tb.appendChild(sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+ 1 Skill  make-deck
+ 2 Bash   cat samples/04_분기실적.csv && ls decks samples
+ 3 Bash   PYTHONUTF8=1 python -c "
+ 4 Bash   mkdir -p decks/분기실적 && cat > decks/분기실적/slides.html <<'EOF'
+      ✗ 원본에 없는 숫자: 4450
+      ✗ 원본에 없는 숫자: 7.6
+      문제 2건 — slides.html 을 고치고 다시 돌린다
+ 5 Bash   sed -i 's|<h2>3분기 매출 7.6% 성장, 고객 증가가 견인|<h2>3분기 매출 <b data-calc="((10240+10010+10690)-(9310+9580+9870))/(9310+9580+9870)
+      통과

@@ -1,0 +1,15 @@
+ 1 Skill  make-deck
+ 2 Bash   cd "<runs>/L2_5"
+ 3 Bash   cd "<runs>/L2_5"
+      63:    sys.stdout.reconfigure(encoding="utf-8")  # Windows cp949 콘솔에서 ✗ 출력
+      104:        print("  ✗", e)
+ 4 Bash   cd "<runs>/L2_5"
+      sys.stdout.reconfigure(encoding="utf-8")  # Windows cp949 콘솔에서 ✗ 출력
+      print("  ✗", e)
+      print("통과" if not errors else f"문제 {len(errors)}건 — slides.html 을 고치고 다시 돌린다")
+ 5 Bash   python -c "
+ 6 Write  <runs>/L2_5/deck
+ 7 Bash   cd "<runs>/L2_5"
+      통과
+ 8 Bash   cd "<runs>/L2_5"
+ 9 Read   <scratch>/s2.png

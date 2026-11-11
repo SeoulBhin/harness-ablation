@@ -1,0 +1,21 @@
+ 1 Bash   ls -la && ls samples && cat samples/04_분기실적.csv; ls .claude 2>/dev/null; ls ~/.claude/skills 2>/dev/null
+ 2 Skill  dataviz
+ 3 Bash   ls "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "/c/Program Files/Google/Chrome/Application/chrome.exe
+ 4 Bash   sed -n 1,80p palette.md
+ 5 Write  <runs>/L1_3/분기실적
+ 6 Edit   <runs>/L1_3/분기실적
+ 7 Bash   PYTHONUTF8=1 python build.py && "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu --n
+ 8 Bash   python -c "import fitz" 2>&1; which pdftoppm magick 2>&1 | head
+ 9 Bash   mkdir -p _preview && PYTHONUTF8=1 python -c "
+10 Read   <runs>/L1_3/_pre
+11 Read   <runs>/L1_3/_pre
+12 Read   <runs>/L1_3/_pre
+13 Read   <runs>/L1_3/_pre
+14 Read   <runs>/L1_3/_pre
+15 Read   <runs>/L1_3/_pre
+16 Read   <runs>/L1_3/_pre
+17 Read   <runs>/L1_3/_pre
+18 Edit   <runs>/L1_3/분기실적
+19 Bash   PYTHONUTF8=1 python build.py >/dev/null && "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disa
+20 Read   <runs>/L1_3/_pre
+21 Bash   rm -rf "<runs>/L

@@ -1,0 +1,15 @@
+ 1 Skill  make-deck
+ 2 Bash   ls; ls samples decks 2>/dev/null; cat samples/04_분기실적.csv
+ 3 Bash   PYTHONUTF8=1 python -c "
+ 4 Bash   mkdir -p decks/분기실적 && cat > decks/분기실적/slides.html <<'EOF'
+      통과
+ 5 Bash   PYTHONUTF8=1 python -c "
+ 6 Bash   PYTHONUTF8=1 python -c "
+ 7 Bash   sed -n 60,140p build.py
+      sys.stdout.reconfigure(encoding="utf-8")  # Windows cp949 콘솔에서 ✗ 출력
+      print("  ✗", e)
+      print("통과" if not errors else f"문제 {len(errors)}건 — slides.html 을 고치고 다시 돌린다")
+ 8 Bash   PYTHONUTF8=1 python -c "
+ 9 Bash   f=decks/분기실적/slides.html && sed -i 's|<h2>3분기 매출 7.6% 성장|<h2>3분기 매출 <span data-calc="(10240+10010+10690-9310-9580-9870)/
+      통과
+10 Read   <scratch>/s.png

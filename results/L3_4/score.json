@@ -1,0 +1,32 @@
+{
+ "run": "L3_4",
+ "level": "L3",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 47,
+ "turns": 8,
+ "cost_usd_list": 0.266,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 6,
+ "build_runs": 2,
+ "hook_events": 0,
+ "final_text": "적/분기실적.html`\n- PDF: `decks/분기실적/분기실적.pdf`\n\n**구성**\n1. 표지: 3분기 실적 리뷰 (2026-07 ~ 2026-09)\n2. 핵심 숫자 4개: 3분기 매출 30,940만원\n   - 매출: 2분기보다 7.6% 증가\n   - 신규고객: 2분기보다 14.5% 증가\n   - 활성고객: 6월 말보다 16.2% 증가\n3. 1~9월 매출 추이 차트: 9월 매출 10,690만원으로 올해 최고. 8월에 한 번 떨어졌다가 다시 올랐습니다.\n4. 월별 신규·해지 고객 차트: 8월 해지가 118명으로 크게 늘었다가 9월 99명으로 줄었습니다.\n5. 마케팅 효율: 마케팅비는 12.7% 늘어 매출 증가율(7.6%)보다 빨랐습니다. 마케팅비 대비 매출은 7.28배에서 6.95배로 낮아졌습니다.\n6. 결정할 것: 8월 해지 급증 원인 확인, 4분기 마케팅비 수준, 4분기 목표 확정\n\n**자료에 없어서 채우지 않은 것**\n- 8월 해지 급증 원인, 그리고 결정 안건의 담당자와 기한은 CSV에 없어서 모두 \"미정\"으로 적었습니다.\n- 1분기 상세 비교와 월별 해지율은 핵심 메시지와 거리가 있어 넣지 않았습니다. 1~3월 값은 추이 차트에만 들어 있습니다.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 16,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

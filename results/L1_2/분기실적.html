@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>분기실적 — 2026년 3분기 실적 리뷰</title>
+<meta name="viewport" content="width=1280"><style>
+@page { size: 1280px 720px; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#8a8984; --line:#e4e3df;
+  --s1:#2a78d6; --s2:#eb6834; --mute:#c9d6e6; --good:#0a7d33; --bad:#c2372f;
+}
+html { background:#d9d9d6; }
+body { font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",sans-serif; color:var(--ink);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.slide { width:1280px; height:720px; background:var(--surface); margin:24px auto; padding:56px 120px 48px;
+  position:relative; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.12); page-break-after:always; break-after:page; }
+@media print { html{background:none} .slide{ margin:0; box-shadow:none; } }
+.eyebrow { font-size:15px; font-weight:700; color:var(--s1); letter-spacing:.04em; margin-bottom:10px; }
+h1 { font-size:64px; font-weight:800; letter-spacing:-.02em; }
+h2 { font-size:34px; font-weight:800; letter-spacing:-.01em; margin-bottom:22px; }
+h3 { font-size:20px; margin-bottom:10px; }
+.title { display:flex; flex-direction:column; justify-content:center; padding-left:120px;
+  border-left:14px solid var(--s1); }
+.title .sub { font-size:24px; color:var(--ink2); margin-top:16px; }
+.title .foot { position:absolute; bottom:48px; font-size:14px; color:var(--muted); }
+.pno { position:absolute; right:40px; bottom:24px; font-size:13px; color:var(--muted); }
+.kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:34px; }
+.kpi { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:#fff; }
+.kl { font-size:15px; color:var(--ink2); }
+.kv { font-size:38px; font-weight:800; margin:6px 0; font-variant-numeric:tabular-nums; }
+.kd { font-size:14px; font-weight:600; }
+.good { color:var(--good); } .bad { color:var(--bad); } .muted { color:var(--muted); }
+.points { list-style:none; font-size:21px; line-height:1.55; color:var(--ink2); }
+.points li { padding-left:20px; position:relative; margin-bottom:10px; }
+.points li::before { content:""; position:absolute; left:0; top:13px; width:7px; height:7px; border-radius:50%; background:var(--s1); }
+.points.small { font-size:17px; margin-top:22px; }
+.points li.muted::before { background:var(--line); }
+.cap { font-size:15px; color:var(--ink2); margin-bottom:6px; }
+.note { font-size:17px; color:var(--ink2); line-height:1.5; margin-top:10px; }
+.chart svg { width:100%; height:auto; display:block; }
+.legend { display:flex; gap:22px; font-size:15px; color:var(--ink2); margin-bottom:6px; align-items:center; }
+.sw { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
+.sw.s1 { background:var(--s1); } .sw.s2 { background:var(--s2); }
+svg .grid { stroke:var(--line); stroke-width:1; }
+svg .base { stroke:var(--ink2); stroke-width:1; }
+svg .qdiv { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; }
+svg .tick { font-size:14px; fill:var(--ink2); }
+svg .val { font-size:15px; font-weight:700; fill:var(--ink); }
+svg .bar.hl, svg .bar.s1 { fill:var(--s1); } svg .bar.mute { fill:var(--mute); } svg .bar.s2 { fill:var(--s2); }
+svg .line { fill:none; stroke:var(--s1); stroke-width:2.5; stroke-linejoin:round; }
+svg .dot { fill:var(--s1); stroke:var(--surface); stroke-width:2; }
+svg .band { fill:#2a78d6; opacity:.06; }
+svg .hit:hover .bar, svg .hit:hover .dot { opacity:.75; }
+table { border-collapse:collapse; width:100%; font-variant-numeric:tabular-nums; }
+th, td { padding:11px 14px; text-align:right; border-bottom:1px solid var(--line); }
+th:first-child, td:first-child { text-align:left; }
+th { font-size:14px; color:var(--ink2); font-weight:600; border-bottom:2px solid var(--ink2); }
+.eff td { font-size:18px; } .eff td:nth-child(4) { font-weight:700; background:#f1f6fd; }
+.data td { font-size:16px; padding:8px 14px; } .data tr.q3 td { background:#f1f6fd; font-weight:600; }
+.cols { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:10px; }
+.card { border:1px solid var(--line); border-top:5px solid var(--s1); border-radius:12px; padding:26px 24px; background:#fff;
+  font-size:17px; line-height:1.6; color:var(--ink2); min-height:300px; }
+.card h3 { color:var(--ink); }
+</style></head>
+<body>
+<section class="slide title">
+  <div class="eyebrow">2026년 3분기 (7–9월)</div>
+  <h1>3분기 실적 리뷰</h1>
+  <p class="sub">매출·고객·효율 지표 점검과 4분기 과제</p>
+  <div class="foot">데이터: 04_분기실적.csv · 단위 별도 표기 없으면 만원</div>
+</section>
+<section class="slide">
+  <div class="eyebrow">요약</div>
+  <h2>매출 3.09억로 올해 분기 최고, 활성 고객 6천 명 돌파</h2>
+  <div class="kpis"><div class="kpi"><div class="kl">3분기 매출</div><div class="kv">3.09억</div><div class="kd good">▲ 전분기 대비 +7.6%</div></div><div class="kpi"><div class="kl">신규 고객</div><div class="kv">1,188명</div><div class="kd good">▲ 전분기 대비 +14.5%</div></div><div class="kpi"><div class="kl">9월 말 활성 고객</div><div class="kv">6,291명</div><div class="kd good">▲ 분기 순증 875명 (+16.2%)</div></div><div class="kpi"><div class="kl">해지 고객</div><div class="kv">313명</div><div class="kd bad">▲ 전분기 대비 +10.2%</div></div></div>
+  <ul class="points">
+    <li>7월 월매출이 처음 1억 원을 넘었고, 9월 10,690만원으로 연중 최고치</li>
+    <li>신규 고객은 분기 기준 최다(1,188명). 획득비용은 1명당 3.75만원으로 소폭 개선</li>
+    <li>다만 8월 해지가 118명으로 연중 최다 — 같은 달 매출도 전월보다 230만원 감소</li>
+  </ul>
+<div class="pno">2 / 8</div></section>
+<section class="slide">
+  <div class="eyebrow">매출</div>
+  <h2>3분기 매출 3.09억, 전분기보다 +7.6%</h2>
+  <p class="cap">월별 매출 (만원) · 진한 막대가 3분기</p>
+  <div class="chart"><svg viewBox="0 0 1040 380" role="img" aria-label="월별 매출 막대그래프"><line x1="64" x2="1016" y1="336.0" y2="336.0" class="grid"/><text x="54" y="340.0" class="tick" text-anchor="end">0</text><line x1="64" x2="1016" y1="258.0" y2="258.0" class="grid"/><text x="54" y="262.0" class="tick" text-anchor="end">3,000</text><line x1="64" x2="1016" y1="180.0" y2="180.0" class="grid"/><text x="54" y="184.0" class="tick" text-anchor="end">6,000</text><line x1="64" x2="1016" y1="102.0" y2="102.0" class="grid"/><text x="54" y="106.0" class="tick" text-anchor="end">9,000</text><line x1="64" x2="1016" y1="24.0" y2="24.0" class="grid"/><text x="54" y="28.0" class="tick" text-anchor="end">12,000</text><g class="hit"><title>1월 매출 8,420만원</title><rect x="81.3" y="24" width="71.2" height="312" fill="transparent"/><path class="bar mute" d="M87.3,336 V121.1 q0,-4 4,-4 H142.5 q4,0 4,4 V336 Z"/></g><text x="116.9" y="358" class="tick" text-anchor="middle">1월</text><g class="hit"><title>2월 매출 8,150만원</title><rect x="187.0" y="24" width="71.2" height="312" fill="transparent"/><path class="bar mute" d="M193.0,336 V128.1 q0,-4 4,-4 H248.3 q4,0 4,4 V336 Z"/></g><text x="222.7" y="358" class="tick" text-anchor="middle">2월</text><g class="hit"><title>3월 매출 9,030만원</title><rect x="292.8" y="24" width="71.2" height="312" fill="transparent"/><path class="bar mute" d="M298.8,336 V105.2 q0,-4 4,-4 H354.1 q4,0 4,4 V336 Z"/></g><text x="328.4" y="358" class="tick" text-anchor="middle">3월</text><g class="hit"><title>4월 매출 9,310만원</title><rect x="398.6" y="24" width="71.2" height="312" fill="transparent"/><path class="bar mute" d="M404.6,336 V97.9 q0,-4 4,-4 H459.8 q4,0 4,4 V336 Z"/></g><text x="434.2" y="358" class="tick" text-anchor="middle">4월</text><g class="hit"><title>5월 매출 9,580만원</title><rect x="504.4" y="24" width="71.2" height="312" fill="transparent"/><path class="bar mute" d="M510.4,336 V90.9 q0,-4 4,-4 H565.6 q4,0 4,4 V336 Z"/></g><text x="540.0" y="358" class="tick" text-anchor="middle">5월</text><g class="hit"><title>6월 매출 9,870만원</title><rect x="610.2" y="24" width="71.2" height="312" fill="transparent"/><path class="bar mute" d="M616.2,336 V83.4 q0,-4 4,-4 H671.4 q4,0 4,4 V336 Z"/></g><text x="645.8" y="358" class="tick" text-anchor="middle">6월</text><g class="hit"><title>7월 매출 10,240만원</title><rect x="715.9" y="24" width="71.2" height="312" fill="transparent"/><path class="bar hl" d="M721.9,336 V73.8 q0,-4 4,-4 H777.2 q4,0 4,4 V336 Z"/></g><text x="751.6" y="61.8" class="val" text-anchor="middle">10,240</text><text x="751.6" y="358" class="tick" text-anchor="middle">7월</text><g class="hit"><title>8월 매출 10,010만원</title><rect x="821.7" y="24" width="71.2" height="312" fill="transparent"/><path class="bar hl" d="M827.7,336 V79.7 q0,-4 4,-4 H883.0 q4,0 4,4 V336 Z"/></g><text x="857.3" y="67.7" class="val" text-anchor="middle">10,010</text><text x="857.3" y="358" class="tick" text-anchor="middle">8월</text><g class="hit"><title>9월 매출 10,690만원</title><rect x="927.5" y="24" width="71.2" height="312" fill="transparent"/><path class="bar hl" d="M933.5,336 V62.1 q0,-4 4,-4 H988.7 q4,0 4,4 V336 Z"/></g><text x="963.1" y="50.1" class="val" text-anchor="middle">10,690</text><text x="963.1" y="358" class="tick" text-anchor="middle">9월</text><line x1="64" x2="1016" y1="336" y2="336" class="base"/></svg></div>
+  <p class="note">8월만 전월 대비 감소(−2.2%)했고, 9월에 +6.8% 반등했다. 성장 속도는 2분기(+12.3%)보다 다소 둔화.</p>
+<div class="pno">3 / 8</div></section>
+<section class="slide">
+  <div class="eyebrow">고객 유입·이탈</div>
+  <h2>신규는 늘었지만 8월 해지가 튀었다</h2>
+  <div class="legend"><span><i class="sw s1"></i>신규 고객</span><span><i class="sw s2"></i>해지 고객</span><span class="muted">(명, 점선은 분기 경계)</span></div>
+  <div class="chart"><svg viewBox="0 0 1040 380" role="img" aria-label="월별 신규·해지 고객"><line x1="64" x2="1016" y1="336.0" y2="336.0" class="grid"/><text x="54" y="340.0" class="tick" text-anchor="end">0</text><line x1="64" x2="1016" y1="232.0" y2="232.0" class="grid"/><text x="54" y="236.0" class="tick" text-anchor="end">150</text><line x1="64" x2="1016" y1="128.0" y2="128.0" class="grid"/><text x="54" y="132.0" class="tick" text-anchor="end">300</text><line x1="64" x2="1016" y1="24.0" y2="24.0" class="grid"/><text x="54" y="28.0" class="tick" text-anchor="end">450</text><g class="hit"><title>1월 신규 312명</title><path class="bar s1" d="M84.2,336 V123.7 q0,-4 4,-4 H111.9 q4,0 4,4 V336 Z"/></g><g class="hit"><title>1월 해지 97명</title><path class="bar s2" d="M117.9,336 V272.7 q0,-4 4,-4 H145.6 q4,0 4,4 V336 Z"/></g><text x="116.9" y="358" class="tick" text-anchor="middle">1월</text><g class="hit"><title>2월 신규 287명</title><path class="bar s1" d="M189.9,336 V141.0 q0,-4 4,-4 H217.7 q4,0 4,4 V336 Z"/></g><g class="hit"><title>2월 해지 104명</title><path class="bar s2" d="M223.7,336 V267.9 q0,-4 4,-4 H251.4 q4,0 4,4 V336 Z"/></g><text x="222.7" y="358" class="tick" text-anchor="middle">2월</text><g class="hit"><title>3월 신규 356명</title><path class="bar s1" d="M295.7,336 V93.2 q0,-4 4,-4 H323.4 q4,0 4,4 V336 Z"/></g><g class="hit"><title>3월 해지 92명</title><path class="bar s2" d="M329.4,336 V276.2 q0,-4 4,-4 H357.2 q4,0 4,4 V336 Z"/></g><text x="328.4" y="358" class="tick" text-anchor="middle">3월</text><g class="hit"><title>4월 신규 341명</title><path class="bar s1" d="M401.5,336 V103.6 q0,-4 4,-4 H429.2 q4,0 4,4 V336 Z"/></g><g class="hit"><title>4월 해지 88명</title><path class="bar s2" d="M435.2,336 V279.0 q0,-4 4,-4 H463.0 q4,0 4,4 V336 Z"/></g><text x="434.2" y="358" class="tick" text-anchor="middle">4월</text><g class="hit"><title>5월 신규 329명</title><path class="bar s1" d="M507.3,336 V111.9 q0,-4 4,-4 H535.0 q4,0 4,4 V336 Z"/></g><g class="hit"><title>5월 해지 95명</title><path class="bar s2" d="M541.0,336 V274.1 q0,-4 4,-4 H568.7 q4,0 4,4 V336 Z"/></g><text x="540.0" y="358" class="tick" text-anchor="middle">5월</text><g class="hit"><title>6월 신규 368명</title><path class="bar s1" d="M613.0,336 V84.9 q0,-4 4,-4 H640.8 q4,0 4,4 V336 Z"/></g><g class="hit"><title>6월 해지 101명</title><path class="bar s2" d="M646.8,336 V270.0 q0,-4 4,-4 H674.5 q4,0 4,4 V336 Z"/></g><text x="645.8" y="358" class="tick" text-anchor="middle">6월</text><g class="hit"><title>7월 신규 402명</title><path class="bar s1" d="M718.8,336 V61.3 q0,-4 4,-4 H746.6 q4,0 4,4 V336 Z"/></g><g class="hit"><title>7월 해지 96명</title><path class="bar s2" d="M752.6,336 V273.4 q0,-4 4,-4 H780.3 q4,0 4,4 V336 Z"/></g><text x="751.6" y="358" class="tick" text-anchor="middle">7월</text><g class="hit"><title>8월 신규 371명</title><path class="bar s1" d="M824.6,336 V82.8 q0,-4 4,-4 H852.3 q4,0 4,4 V336 Z"/></g><g class="hit"><title>8월 해지 118명</title><path class="bar s2" d="M858.3,336 V258.2 q0,-4 4,-4 H886.1 q4,0 4,4 V336 Z"/></g><text x="874.2" y="246.2" class="val" text-anchor="middle">118</text><text x="857.3" y="358" class="tick" text-anchor="middle">8월</text><g class="hit"><title>9월 신규 415명</title><path class="bar s1" d="M930.4,336 V52.3 q0,-4 4,-4 H958.1 q4,0 4,4 V336 Z"/></g><g class="hit"><title>9월 해지 99명</title><path class="bar s2" d="M964.1,336 V271.4 q0,-4 4,-4 H991.8 q4,0 4,4 V336 Z"/></g><text x="946.2" y="40.3" class="val" text-anchor="middle">415</text><text x="963.1" y="358" class="tick" text-anchor="middle">9월</text><line x1="381.3" x2="381.3" y1="24" y2="336" class="qdiv"/><line x1="698.7" x2="698.7" y1="24" y2="336" class="qdiv"/><line x1="64" x2="1016" y1="336" y2="336" class="base"/></svg></div>
+  <p class="note">8월 해지율 2.06% — 3분기 다른 달(7월 1.77%, 9월 1.66%)보다 높다. 9월에 정상 수준으로 돌아왔지만 원인은 이 데이터만으로는 알 수 없어 확인이 필요하다.</p>
+<div class="pno">4 / 8</div></section>
+<section class="slide">
+  <div class="eyebrow">활성 고객</div>
+  <h2>분기 순증 875명 — 올해 들어 가장 큰 폭</h2>
+  <p class="cap">월말 활성 고객 수 (명)</p>
+  <div class="chart"><svg viewBox="0 0 1040 380" role="img" aria-label="월말 활성고객 추이"><line x1="64" x2="1016" y1="336.0" y2="336.0" class="grid"/><text x="54" y="340.0" class="tick" text-anchor="end">3,000</text><line x1="64" x2="1016" y1="258.0" y2="258.0" class="grid"/><text x="54" y="262.0" class="tick" text-anchor="end">4,000</text><line x1="64" x2="1016" y1="180.0" y2="180.0" class="grid"/><text x="54" y="184.0" class="tick" text-anchor="end">5,000</text><line x1="64" x2="1016" y1="102.0" y2="102.0" class="grid"/><text x="54" y="106.0" class="tick" text-anchor="end">6,000</text><line x1="64" x2="1016" y1="24.0" y2="24.0" class="grid"/><text x="54" y="28.0" class="tick" text-anchor="end">7,000</text><rect x="707.2" y="24" width="308.8" height="312" class="band"/><text x="1006" y="42" class="tick" text-anchor="end">3분기</text><polyline points="94.0,241.2 205.5,227.0 317.0,206.4 428.5,186.6 540.0,168.4 651.5,147.6 763.0,123.7 874.5,103.9 986.0,79.3" class="line"/><g class="hit"><title>1월 말 활성고객 4,215명</title><circle cx="94.0" cy="241.2" r="14" fill="transparent"/><circle cx="94.0" cy="241.2" r="5" class="dot"/></g><text x="94.0" y="227.2" class="val" text-anchor="middle">4,215</text><text x="94.0" y="358" class="tick" text-anchor="middle">1월</text><g class="hit"><title>2월 말 활성고객 4,398명</title><circle cx="205.5" cy="227.0" r="14" fill="transparent"/><circle cx="205.5" cy="227.0" r="5" class="dot"/></g><text x="205.5" y="358" class="tick" text-anchor="middle">2월</text><g class="hit"><title>3월 말 활성고객 4,662명</title><circle cx="317.0" cy="206.4" r="14" fill="transparent"/><circle cx="317.0" cy="206.4" r="5" class="dot"/></g><text x="317.0" y="358" class="tick" text-anchor="middle">3월</text><g class="hit"><title>4월 말 활성고객 4,915명</title><circle cx="428.5" cy="186.6" r="14" fill="transparent"/><circle cx="428.5" cy="186.6" r="5" class="dot"/></g><text x="428.5" y="358" class="tick" text-anchor="middle">4월</text><g class="hit"><title>5월 말 활성고객 5,149명</title><circle cx="540.0" cy="168.4" r="14" fill="transparent"/><circle cx="540.0" cy="168.4" r="5" class="dot"/></g><text x="540.0" y="358" class="tick" text-anchor="middle">5월</text><g class="hit"><title>6월 말 활성고객 5,416명</title><circle cx="651.5" cy="147.6" r="14" fill="transparent"/><circle cx="651.5" cy="147.6" r="5" class="dot"/></g><text x="651.5" y="133.6" class="val" text-anchor="middle">5,416</text><text x="651.5" y="358" class="tick" text-anchor="middle">6월</text><g class="hit"><title>7월 말 활성고객 5,722명</title><circle cx="763.0" cy="123.7" r="14" fill="transparent"/><circle cx="763.0" cy="123.7" r="5" class="dot"/></g><text x="763.0" y="358" class="tick" text-anchor="middle">7월</text><g class="hit"><title>8월 말 활성고객 5,975명</title><circle cx="874.5" cy="103.9" r="14" fill="transparent"/><circle cx="874.5" cy="103.9" r="5" class="dot"/></g><text x="874.5" y="358" class="tick" text-anchor="middle">8월</text><g class="hit"><title>9월 말 활성고객 6,291명</title><circle cx="986.0" cy="79.3" r="14" fill="transparent"/><circle cx="986.0" cy="79.3" r="5" class="dot"/></g><text x="986.0" y="65.3" class="val" text-anchor="middle">6,291</text><text x="986.0" y="358" class="tick" text-anchor="middle">9월</text></svg></div>
+  <p class="note">분기 순증: 1분기 662 → 2분기 754 → 3분기 875명. 연초 대비 활성 고객 +57%.</p>
+<div class="pno">5 / 8</div></section>
+<section class="slide">
+  <div class="eyebrow">효율</div>
+  <h2>획득 효율은 유지, 고객 1명당 매출은 하락 추세</h2>
+  <table class="eff"><tr><th>지표</th><th>1분기</th><th>2분기</th><th>3분기</th><th>전분기 대비</th></tr><tr><td>마케팅비 (만원)</td><td>3,650</td><td>3,950</td><td>4,450</td><td class="bad">▲ +12.7%</td></tr><tr><td>신규 1명당 획득비용 (만원)</td><td>3.82</td><td>3.81</td><td>3.75</td><td class="good">▼ −1.6%</td></tr><tr><td>마케팅비 1원당 매출 (배)</td><td>7.01</td><td>7.28</td><td>6.95</td><td class="bad">▼ −4.5%</td></tr><tr><td>월평균 해지율</td><td>2.33%</td><td>1.93%</td><td>1.83%</td><td class="good">▼ −0.10%p</td></tr><tr><td>고객 1명당 월매출 (만원)</td><td>1.98</td><td>1.90</td><td>1.76</td><td class="bad">▼ −7.4%</td></tr></table>
+  <ul class="points small">
+    <li>마케팅비를 +12.7% 늘렸고 신규도 +14.5% 늘어 획득비용은 비슷한 수준</li>
+    <li>고객 1명당 월매출은 분기마다 낮아지는 중 — 고객 수가 매출보다 빠르게 늘고 있다는 뜻</li>
+    <li class="muted">고객 1명당 월매출 = 월매출 ÷ (월초+월말 활성)/2, 해지율 = 해지 ÷ 월초 활성</li>
+  </ul>
+<div class="pno">6 / 8</div></section>
+<section class="slide">
+  <div class="eyebrow">4분기 과제</div>
+  <h2>성장은 유지하고, 이탈과 단가를 챙긴다</h2>
+  <div class="cols">
+    <div class="card"><h3>1. 8월 해지 원인 확인</h3><p>해지 118명이 몰린 배경(가격·서비스 이슈·계절 요인 등)을 해지 사유 데이터로 확인하고 재발 방지책을 정한다.</p></div>
+    <div class="card"><h3>2. 고객 1명당 매출 관리</h3><p>1.98 → 1.76만원으로 하락 중. 신규 고객의 요금제 구성과 업셀 여지를 점검한다.</p></div>
+    <div class="card"><h3>3. 획득 효율 유지</h3><p>마케팅비가 월 1,500만원 수준까지 올라왔다. 신규 1명당 3.75만원 이하를 기준선으로 집행을 관리한다.</p></div>
+  </div>
+<div class="pno">7 / 8</div></section>
+<section class="slide">
+  <div class="eyebrow">부록</div>
+  <h2>월별 원자료</h2>
+  <table class="data"><tr><th>월</th><th>매출(만원)</th><th>신규</th><th>해지</th><th>월말 활성</th><th>마케팅비(만원)</th><th>해지율</th></tr><tr class=""><td>2026-01</td><td>8,420</td><td>312</td><td>97</td><td>4,215</td><td>1,200</td><td>2.43%</td></tr><tr class=""><td>2026-02</td><td>8,150</td><td>287</td><td>104</td><td>4,398</td><td>1,100</td><td>2.47%</td></tr><tr class=""><td>2026-03</td><td>9,030</td><td>356</td><td>92</td><td>4,662</td><td>1,350</td><td>2.09%</td></tr><tr class=""><td>2026-04</td><td>9,310</td><td>341</td><td>88</td><td>4,915</td><td>1,300</td><td>1.89%</td></tr><tr class=""><td>2026-05</td><td>9,580</td><td>329</td><td>95</td><td>5,149</td><td>1,250</td><td>1.93%</td></tr><tr class=""><td>2026-06</td><td>9,870</td><td>368</td><td>101</td><td>5,416</td><td>1,400</td><td>1.96%</td></tr><tr class="q3"><td>2026-07</td><td>10,240</td><td>402</td><td>96</td><td>5,722</td><td>1,500</td><td>1.77%</td></tr><tr class="q3"><td>2026-08</td><td>10,010</td><td>371</td><td>118</td><td>5,975</td><td>1,450</td><td>2.06%</td></tr><tr class="q3"><td>2026-09</td><td>10,690</td><td>415</td><td>99</td><td>6,291</td><td>1,500</td><td>1.66%</td></tr></table>
+  <p class="note">해지율은 월초 활성(전월 말) 기준으로 계산. 1월 월초 활성은 1월 말 − 신규 + 해지로 역산(4,000명).</p>
+<div class="pno">8 / 8</div></section></body></html>

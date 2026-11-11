@@ -1,0 +1,32 @@
+{
+ "run": "L4_2",
+ "level": "L4",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 61,
+ "turns": 9,
+ "cost_usd_list": 0.299,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 7,
+ "build_runs": 3,
+ "hook_events": 4,
+ "final_text": "ked in August, respond to falling revenue per customer, and set Q4 marketing spend.\n\n**Left out or assumed:**\n- I treated Q3 as July–September and compared it with Q2.\n- Q1 appears only on the monthly charts and as a January figure for revenue per customer; there are no Q1 totals.\n- The data doesn't explain the August churn spike, and it names no owners or deadlines. Those spots say \"미정\" (undecided) on the slides.\n- \"Revenue per customer\" is my own metric: monthly revenue divided by active customers at month-end. It isn't in the data, so it's worth checking it fits how your team measures this.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 27,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

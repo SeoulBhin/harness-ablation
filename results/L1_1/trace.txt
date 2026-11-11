@@ -1,0 +1,19 @@
+ 1 Bash   cd "<runs>/L1_1"
+ 2 Bash   which python py; python --version; ls "/c/Program Files/Google/Chrome/Application/chrome.exe" "/c/Program Files (x86)/Mi
+ 3 Skill  dataviz
+ 4 Bash   cd "<home>/AppData/Local/Temp/claude/bundled-skills/2.1.322/3040c2a477ece4ee98f48e7501719a56/dataviz/references"
+ 5 Write  <runs>/L1_1/분기실적
+ 6 Bash   PYTHONUTF8=1 python build_deck.py && "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gp
+ 7 Bash   mkdir -p preview && PYTHONUTF8=1 python -c "
+ 8 Read   <scratch>/preview/p2.png
+ 9 Read   <scratch>/preview/p3.png
+10 Read   <scratch>/preview/p4.png
+11 Read   <scratch>/preview/p5.png
+12 Read   <scratch>/preview/p6.png
+13 Read   <scratch>/preview/p7.png
+14 Read   <scratch>/preview/p8.png
+15 Read   <scratch>/preview/p9.png
+16 Read   <scratch>/preview/p1.png
+17 Bash   PYTHONUTF8=1 python - <<'EOF'
+18 Read   <scratch>/preview/p5.png
+19 Read   <scratch>/preview/p7.png

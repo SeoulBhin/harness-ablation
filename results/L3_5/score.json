@@ -1,0 +1,32 @@
+{
+ "run": "L3_5",
+ "level": "L3",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 59,
+ "turns": 7,
+ "cost_usd_list": 0.299,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 5,
+ "build_runs": 3,
+ "hook_events": 0,
+ "final_text": "매출 per 1만원 of 마케팅비 fell from 7.28 to 6.95, and 마케팅비 per 신규고객 improved slightly, from 3.81만원 to 3.75만원\n6. 결정할 것: why 해지 jumped in 8월, what to spend on 마케팅 in 4분기, and how to keep 신규 growing. The CSV doesn't say who owns these or by when, so 담당 and 기한 are marked \"미정\" for you to fill in.\n\n**Left out on purpose:**\n- 1분기 figures appear only in the monthly charts. The comparisons are 3분기 against 2분기 only.\n- The CSV has no reason for the 8월 해지 spike, so the deck doesn't guess at one.\n- I didn't add up 월말 활성고객 across months, since that total means nothing. The deck uses the 6월말 and 9월말 values instead.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 27,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

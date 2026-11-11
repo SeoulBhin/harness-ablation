@@ -1,0 +1,33 @@
+{
+ "run": "L2_2",
+ "level": "L2",
+ "new_files": [
+  "__pycache__/build.cpython-313.pyc",
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 84,
+ "turns": 13,
+ "cost_usd_list": 0.402,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 10,
+ "build_runs": 5,
+ "hook_events": 0,
+ "final_text": "0,690만원 in September\n4. New vs. cancelled customers by month: 118 cancellations in August, the highest of the 9 months\n5. Marketing spend up 12.7%, but cost per new customer fell: 3.81만원 in Q2 to 3.75만원 in Q3\n6. Decisions: Q4 marketing budget, finding out why cancellations rose in August, keeping September's growth going\n\n**Left out or marked 미정**\n- The CSV doesn't say why August cancellations rose, so I didn't guess a reason.\n- It has no owners or deadlines, so those are marked 미정 in the decision table.\n- Q1 appears only as a reference row in the marketing table; the deck compares Q3 with Q2.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 19,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

@@ -1,0 +1,14 @@
+ 1 Skill  make-deck
+ 2 Bash   cat samples/04_분기실적.csv; ls; ls decks 2>/dev/null
+ 3 Bash   PYTHONUTF8=1 python -c "
+      sys.stdout.reconfigure(encoding="utf-8")  # Windows cp949 콘솔에서 ✗ 출력
+      print("  ✗", e)
+      print("통과" if not errors else f"문제 {len(errors)}건 — slides.html 을 고치고 다시 돌린다")
+ 4 Bash   mkdir -p decks/분기실적 && cat > decks/분기실적/slides.html <<'EOF'
+      ✗ 원본에 없는 숫자: 12.3
+      ✗ 원본에 없는 숫자: 3.7
+      ✗ 원본에 없는 숫자: 7.6
+      문제 3건 — slides.html 을 고치고 다시 돌린다
+ 5 Bash   PYTHONUTF8=1 python - <<'EOF'
+      통과
+    [Stop 훅] exit 0 

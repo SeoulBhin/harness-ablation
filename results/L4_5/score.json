@@ -1,0 +1,32 @@
+{
+ "run": "L4_5",
+ "level": "L4",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 72,
+ "turns": 10,
+ "cost_usd_list": 0.338,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 8,
+ "build_runs": 3,
+ "hook_events": 6,
+ "final_text": " 매출 추이(선 차트):** 9월 매출 10,690만원이 9개월 중 가장 높습니다. 8월에 잠깐 줄었다가 다시 올랐습니다.\n4. **월별 신규·해지 고객(막대 차트):** 8월 해지가 118명으로 9개월 중 가장 많았습니다. 3분기 해지는 전분기보다 10.2% 늘었습니다.\n5. **마케팅 효율(분기 비교 표):** 마케팅비가 12.7% 늘어 매출 증가율 7.6%보다 높았습니다. 마케팅비 대비 매출은 7.28에서 6.95로 떨어졌습니다. 반면 신규 고객 1명을 얻는 데 든 마케팅비는 3.81만원에서 3.75만원으로 조금 줄었습니다.\n6. **논의할 것:** 8월 해지가 늘어난 원인, 마케팅 효율이 떨어진 데 대한 대응, 4분기 마케팅 예산입니다. 자료에 담당자와 기한이 없어서 모두 \"미정\"으로 두었습니다.\n\n**일부러 뺀 내용**\n- **월별 마케팅비 차트:** 마케팅비는 분기 합계로만 보여줬습니다.\n- **월별 해지율:** 8월 1.97%, 9월 1.57%처럼 계산은 했지만 해지 건수 메시지와 겹쳐서 넣지 않았습니다.\n- **원인과 목표:** CSV에 원인이나 목표치가 없어서 8월 해지 원인, 목표 대비 달성률, 작년 같은 분기 대비 비교는 쓰지 않았습니다.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 20,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

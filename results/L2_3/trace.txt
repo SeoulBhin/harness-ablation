@@ -1,0 +1,7 @@
+ 1 Skill  make-deck
+ 2 Bash   cd "<runs>/L2_3"
+ 3 Bash   cd "<runs>/L2_3"
+ 4 Write  <runs>/L2_3/deck
+ 5 Bash   PYTHONUTF8=1 python build.py decks/분기실적 samples/04_분기실적.csv
+      통과
+ 6 Read   <runs>/L2_3/deck

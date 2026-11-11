@@ -1,0 +1,32 @@
+{
+ "run": "L4_4",
+ "level": "L4",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 54,
+ "turns": 6,
+ "cost_usd_list": 0.274,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 4,
+ "build_runs": 2,
+ "hook_events": 2,
+ "final_text": "다.\n\n- HTML: `decks/분기실적/분기실적.html`\n- PDF: `decks/분기실적/분기실적.pdf`\n\n**구성 (7장)**\n1. 표지: 3분기 실적 리뷰 (2026년 7~9월)\n2. 핵심 숫자: 3분기 매출 30,940만원, 전분기 대비 +7.6%, 신규고객 1,188명, 9월말 활성고객 6,291명\n3. 매출 추이(1~9월 차트): 분기 매출 증가율이 2분기 12.3%에서 3분기 7.6%로 낮아졌습니다.\n4. 고객: 신규고객은 전분기보다 14.5% 늘었고, 활성고객은 6월말 대비 16.2% 늘었습니다.\n5. 해지: 8월 해지가 118명으로 올해 가장 많았고, 3분기 해지는 전분기보다 10.2% 늘었습니다.\n6. 마케팅: 마케팅비는 12.7% 늘었지만 신규 1명당 비용은 3.81만원에서 3.75만원으로 소폭 줄었습니다.\n7. 결정할 것: 해지 원인 조사, 4분기 목표 재설정, 마케팅비 유지 여부\n\n**일부러 뺐거나 비워 둔 것**\n- 1분기 수치는 차트 추이로만 보여주고, 비교는 3분기와 2분기 위주로 했습니다.\n- 8월 해지가 급증한 원인은 자료에 없어 \"미정\"으로 적었습니다.\n- 마지막 장의 담당자와 기한도 자료에 없어 모두 \"미정\"입니다.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 24,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

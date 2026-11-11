@@ -1,0 +1,32 @@
+{
+ "run": "L3_2",
+ "level": "L3",
+ "new_files": [
+  "decks/분기실적/slides.html",
+  "decks/분기실적/분기실적.html",
+  "decks/분기실적/분기실적.pdf"
+ ],
+ "duration_s": 45,
+ "turns": 7,
+ "cost_usd_list": 0.246,
+ "is_error": false,
+ "permission_denials": 0,
+ "tool_calls": 5,
+ "build_runs": 3,
+ "hook_events": 0,
+ "final_text": "3분기 실적 리뷰 발표자료를 HTML과 PDF로 만들었습니다. 모두 6장이고, 검사(숫자 출처, 슬라이드 넘침, PDF 쪽수)를 통과했습니다.\n\n- HTML: `decks/분기실적/분기실적.html`\n- PDF: `decks/분기실적/분기실적.pdf`\n\n**구성**\n1. 표지\n2. 3분기 매출 30,940만원으로 2분기보다 7.6% 성장. 신규고객은 14.5% 늘었고, 활성고객은 6월 말보다 16.2% 늘었음\n3. 1~9월 월별 매출 차트. 9월 10,690만원이 가장 높음\n4. 월별 신규·해지고객 추이. 8월 해지가 118명으로 7월보다 22.9% 늘었다가 9월에 99명으로 돌아옴\n5. 마케팅비는 12.7% 늘었는데 매출은 7.6% 늘어, 마케팅비 대비 매출이 7.3에서 7.0으로 떨어짐 (분기별 표 포함)\n6. 결정할 것: 8월 해지 원인 조사, 4분기 마케팅비 수준, 마케팅 효율 관리 기준\n\n**확인이 필요한 부분**\n- 8월 해지가 왜 늘었는지, 각 항목을 누가 맡는지는 자료에 없어서 \"미정\"으로 적었습니다.\n- 월별 해지율과 신규고객 1명당 마케팅비는 계산해 봤지만 흐름이 뚜렷하지 않아 넣지 않았습니다.",
+ "pdf": true,
+ "deck": "decks/분기실적/slides.html",
+ "checker_changed": [],
+ "has_script": false,
+ "outcome": "덱",
+ "numbers_shown": 17,
+ "unverifiable": 0,
+ "calc_mismatch": [],
+ "unexplained": [],
+ "active_html": 0,
+ "other_errors": [],
+ "unverifiable_list": [],
+ "pristine_build_pass": true,
+ "pristine_build_errors": []
+}

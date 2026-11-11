@@ -1,0 +1,7 @@
+ 1 Skill  make-deck
+ 2 Bash   cat samples/04_분기실적.csv; ls; ls decks 2>/dev/null
+ 3 Bash   PYTHONUTF8=1 python -c "
+ 4 Bash   python -c "
+ 5 Write  <runs>\L2_4\deck
+ 6 Bash   PYTHONUTF8=1 python build.py decks/분기실적 samples/04_분기실적.csv
+      통과
